@@ -1,42 +1,40 @@
-var page = require('../pageObjects/loginPage.js');
+var loginPage = require('../pageObjects/loginPage.js');
 
 describe ("Login Page", function(){
 
     beforeEach(function() {
-        page.go("https://yougov.co.uk/account/login/");
-        browser.waitForAngular
+        loginPage.visit();
     });
 
     it("should render properly", function() {
-        expect(page.logo().isPresent()).toBe(true);
+        expect(loginPage.logo().isPresent()).toBe(true);
     });
 
     describe("Cookie Window", function(){
 
         it("should contain cookie frame with elements", function() {
-            expect(page.cookieFrame().isPresent()).toBe(true);
-            expect(page.cookieText().isPresent()).toBe(true);
-            expect(page.cookieMore().isPresent()).toBe(true);
-            expect(page.cookieAcceptButton().isPresent()).toBe(true);
+            expect(loginPage.cookieFrame().isPresent()).toBe(true);
+            expect(loginPage.cookieText().isPresent()).toBe(true);
+            expect(loginPage.cookieMore().isPresent()).toBe(true);
+            expect(loginPage.cookieAcceptButton().isPresent()).toBe(true);
         });
 
         it("should contain cookie description", function() {
-            expect(page.cookieText().getText()).toEqual(
-                'YouGov uses cookies to give you the best experience on our site. By continuing to browse, you are agreeing to our use of cookies. More...');
+            expect(loginPage.cookieText().getText()).toEqual(loginPage.expectedCookieText());
         });
 
         it("should contain cookie more.. text", function() {
-            expect(page.cookieMore().getText()).toBe('More...');
-            expect(page.cookieMore().getAttribute("href")).toMatch('/about/cookies/');
+            expect(loginPage.cookieMore().getText()).toBe('More...');
+            expect(loginPage.cookieMore().getAttribute("href")).toMatch('/about/cookies/');
         });
 
         it("should contain cookie accept button", function() {
-            expect(page.cookieAcceptButton().getText()).toBe('Accept');
+            expect(loginPage.cookieAcceptButton().getText()).toBe('Accept');
         });
 
         it("should close cookie frame after acceptation", function() {
-            page.cookieAcceptButton().click();
-            expect(page.cookieFrame().isPresent()).toBe(false);
+            loginPage.cookieAcceptButton().click();
+            expect(loginPage.cookieFrame().isPresent()).toBe(false);
         });
 
     });
