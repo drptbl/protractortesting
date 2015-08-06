@@ -1,4 +1,6 @@
 var jasmineReporters = require('jasmine-reporters');
+var SpecReporter = require('jasmine-spec-reporter');
+
 exports.config = {
 
   // The address of a running selenium server.
@@ -62,19 +64,38 @@ exports.config = {
     // If true, include stack traces in failures.
     includeStackTrace: true,
     // Default time to wait in ms before a test fails.
-    defaultTimeoutInterval: 30000
+    defaultTimeoutInterval: 30000,
+    // Remove protractor dot reporter
+    print: function() {}
   },
 
   onPrepare: function(){
+    'use strict';
     jasmine.getEnv().addReporter(new jasmineReporters.JUnitXmlReporter({
         consolidateAll: false,
         savePath: 'testreports'
     }));
-        jasmine.getEnv().addReporter(new jasmineReporters.TerminalReporter({
-            verbosity: 3,
-            color: true,
-            showStack: true
-        }));
+      // add jasmine spec reporter
+      jasmine.getEnv().addReporter(new SpecReporter({
+            displayStacktrace: 'summary',    // display stacktrace for each failed assertion, values: (all|specs|summary|none)
+            displayFailuresSummary: true, // display summary of all failures after execution
+            displayPendingSummary: true,  // display summary of all pending specs after execution
+            displaySuccessfulSpec: true,  // display each successful spec
+            displayFailedSpec: true,      // display each failed spec
+            displayPendingSpec: true,    // display each pending spec
+            displaySpecDuration: true,   // display each spec duration
+            displaySuiteNumber: true,    // display each suite number (hierarchical)
+            colors: {
+                   success: 'green',
+                   failure: 'red',
+                   pending: 'yellow'
+            },
+            prefixes: {
+            success: '✓ ',
+            failure: '✗ ',
+            pending: '* '
+            },
+      }));
       // If you need to interact with a non-Angular page, you may access the wrapped webdriver instance
       // directly with browser.driver. This is a an alias.
       global.dv = browser.driver;
