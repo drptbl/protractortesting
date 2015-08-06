@@ -8,6 +8,10 @@ module.exports = Factory.create({
         return browser.get('https://yougov.co.uk/account/login/');
     },
 
+    url: function(){
+        return ('https://yougov.co.uk/account/login/');
+    },
+
     logo: function(){
         return element(by.css('.logo'));
     },
@@ -30,6 +34,10 @@ module.exports = Factory.create({
 
     expectedCookieText: function(){
         return ('YouGov uses cookies to give you the best experience on our site. By continuing to browse, you are agreeing to our use of cookies. More...');
+    },
+
+    cookiePath: function(){
+        return ('/about/cookies/')
     }
 
 });

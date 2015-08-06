@@ -1,6 +1,7 @@
 'use strict';
 
 var loginPage = require('../pageObjects/loginPage.js');
+var cookiesPage = require('../pageObjects/cookiesPage.js');
 
 describe ('Login Page', function(){
 
@@ -9,16 +10,16 @@ describe ('Login Page', function(){
     });
 
     it('should render properly', function() {
-        expect(loginPage.logo().isPresent()).toBe(true);
+        expect(loginPage.logo().isPresent()).toBeTruthy();
     });
 
     describe('Cookie Window', function(){
 
         it('should contain cookie frame with elements', function() {
-            expect(loginPage.cookieFrame().isPresent()).toBe(true);
-            expect(loginPage.cookieText().isPresent()).toBe(true);
-            expect(loginPage.cookieMore().isPresent()).toBe(true);
-            expect(loginPage.cookieAcceptButton().isPresent()).toBe(true);
+            expect(loginPage.cookieFrame().isPresent()).toBeTruthy();
+            expect(loginPage.cookieText().isPresent()).toBeTruthy();
+            expect(loginPage.cookieMore().isPresent()).toBeTruthy();
+            expect(loginPage.cookieAcceptButton().isPresent()).toBeTruthy();
         });
 
         it('should contain cookie description', function() {
@@ -27,7 +28,12 @@ describe ('Login Page', function(){
 
         it('should contain cookie more.. text', function() {
             expect(loginPage.cookieMore().getText()).toBe('More...');
-            expect(loginPage.cookieMore().getAttribute('href')).toMatch('/about/cookies/');
+            expect(loginPage.cookieMore().getAttribute('href')).toMatch(loginPage.cookiePath());
+        });
+
+        it('should redirect user to cookie page after click on more.. text', function() {
+            loginPage.cookieMore().click();
+            expect(browser.getCurrentUrl()).toEqual(cookiesPage.url());
         });
 
         it('should contain cookie accept button', function() {
@@ -36,7 +42,8 @@ describe ('Login Page', function(){
 
         it('should close cookie frame after acceptation', function() {
             loginPage.cookieAcceptButton().click();
-            expect(loginPage.cookieFrame().isPresent()).toBe(false);
+            browser.sleep(500);
+            expect(loginPage.cookieFrame().isPresent()).toBeFalsy();
         });
 
     });

@@ -1,5 +1,6 @@
 var jasmineReporters = require('jasmine-reporters');
 var SpecReporter = require('jasmine-spec-reporter');
+var HtmlScreenshotReporter = require('protractor-jasmine2-screenshot-reporter');
 
 exports.config = {
 
@@ -71,9 +72,43 @@ exports.config = {
 
   onPrepare: function(){
     'use strict';
+    // html reporter (protractor-html-screenshot-reporter)
+    //   jasmine.getEnv().addReporter(new HtmlReporter({
+    //   baseDirectory: '../tmp/htmltestreports',
+    //   preserveDirectory: false,
+    //   docName: 'report.html',
+    //   docTitle: 'Generated test report',
+    //   takeScreenShotsForSkippedSpecs: true,
+    //   takeScreenShotsOnlyForFailedSpecs: false
+    // }));
+
+    // html reporter (protractor-jasmine2-html-reporter)
+    jasmine.getEnv().addReporter(
+    new HtmlScreenshotReporter({
+    dest: '.tmp/htmltestreports',
+    filename: 'report.html',
+    ignoreSkippedSpecs: false,
+    captureOnlyFailedSpecs: false,
+    reportOnlyFailedSpecs: false
+    }));
+    
+    // Disable animations so e2e tests run more quickly
+    var disableNgAnimate = function() {
+      angular.module('disableNgAnimate', []).run(['$animate', function($animate) {
+        $animate.enabled(false);
+      }]);
+    };
+
+    browser.addMockModule('disableNgAnimate', disableNgAnimate);
+
+    // Store the name of the browser that's currently being used.
+    browser.getCapabilities().then(function(caps) {
+    browser.params.browser = caps.get('browserName');
+     });
+
     jasmine.getEnv().addReporter(new jasmineReporters.JUnitXmlReporter({
         consolidateAll: false,
-        savePath: 'testreports'
+        savePath: '.tmp/junittestreports'
     }));
       // add jasmine spec reporter
       jasmine.getEnv().addReporter(new SpecReporter({
