@@ -1,3 +1,4 @@
+var jasmineReporters = require('jasmine-reporters');
 exports.config = {
 
   // The address of a running selenium server.
@@ -65,6 +66,15 @@ exports.config = {
   },
 
   onPrepare: function(){
+    jasmine.getEnv().addReporter(new jasmineReporters.JUnitXmlReporter({
+        consolidateAll: false,
+        savePath: 'testreports'
+    }));
+        jasmine.getEnv().addReporter(new jasmineReporters.TerminalReporter({
+            verbosity: 3,
+            color: true,
+            showStack: true
+        }));
       // If you need to interact with a non-Angular page, you may access the wrapped webdriver instance
       // directly with browser.driver. This is a an alias.
       global.dv = browser.driver;
