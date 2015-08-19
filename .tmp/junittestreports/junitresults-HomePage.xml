@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+ <testsuite name="Home Page" timestamp="2015-08-12T10:36:52" hostname="localhost" time="23.146" errors="0" tests="2" skipped="0" disabled="0" failures="0">
+  <testcase classname="Home Page" name="should render properly" time="9.957" />
+  <testcase classname="Home Page" name="should contain proper title" time="6.58" />
+ </testsuite>
+ <testsuite name="Home Page.Map" timestamp="2015-08-12T10:37:08" hostname="localhost" time="6.605" errors="0" tests="1" skipped="0" disabled="0" failures="0">
+  <testcase classname="Home Page.Map" name="should be shown" time="6.604" />
+ </testsuite>
+</testsuites>

@@ -4,12 +4,16 @@ var Factory = require('../lib/pageObject.js').PageObjectFactory;
 
 module.exports = Factory.create({
 
-    visit: function(){
-        return browser.get('https://yougov.co.uk/#/');
+    logo: function(){
+    	return element(by.css('.icon-yougov-logo'));
     },
 
-    url: function(){
-        return ('https://yougov.co.uk/');
+    map: function(){
+        return element(by.css('.opinions-map'));
+    },
+
+    pageTitle: function(){
+        return ('YouGov | What the world thinks');
     }
 
 });

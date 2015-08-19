@@ -4,16 +4,12 @@ var Factory = require('../lib/pageObject.js').PageObjectFactory;
 
 module.exports = Factory.create({
 
-    visit: function(){
-        return browser.get('https://yougov.co.uk/account/login/');
-    },
-
-    url: function(){
-        return ('https://yougov.co.uk/account/login/');
-    },
-
     logo: function(){
         return element(by.css('.logo'));
+    },
+
+    pageTitle: function(){
+        return ('YouGov | Login');
     },
 
     cookieFrame: function(){
@@ -37,7 +33,11 @@ module.exports = Factory.create({
     },
 
     cookiePath: function(){
-        return ('/about/cookies/')
+        return ('/about/cookies/');
+    },
+
+    mainLoginFrame: function(){
+        return element(by.css(''));
     }
 
 });

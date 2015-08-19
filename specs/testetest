@@ -1,0 +1,24 @@
+        it('should be online (respond with status code 200)', function() {
+            connection.ping(function (err) {
+  if (err) throw err;
+  console.log('Server responded with status code 200');
+})
+        });
+
+
+
+
+            describe('Login', function(){
+        it('should work properly', function() {
+        int panelist_id = 0;
+        var before;
+        var after;
+        connectDatabase.connection.connect();
+        connectDatabase.connection.query(sql, function(err, rows) {
+        if (!err) {
+            before = rows[0].result;
+        }
+        });
+        //Inserts user and verifies row insertion
+            });
+            });

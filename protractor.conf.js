@@ -1,6 +1,8 @@
 var jasmineReporters = require('jasmine-reporters');
 var SpecReporter = require('jasmine-spec-reporter');
 var HtmlScreenshotReporter = require('protractor-jasmine2-screenshot-reporter');
+var mysql = require('mysql');
+
 
 exports.config = {
 
@@ -22,7 +24,8 @@ exports.config = {
   // run.
   suites: {
     smoke: 'spec/smoketests/*.js',
-    full: 'spec/*.js'
+    full: 'spec/*.js',
+    homepage: 'spec/homePageSpec.js'
   },
 
   // The timeout in milliseconds for each script run on the browser. This should
@@ -72,6 +75,20 @@ exports.config = {
 
   onPrepare: function(){
     'use strict';
+
+    //connect to database
+    var connection = mysql.createConnection({
+    host : 'mysql.stgwaw.opigram',
+    user : 'monad',
+    password : 'monad',
+    database: 'monad'
+    });
+    connection.connect();
+
+    // maximize window
+    browser.driver.manage().window().maximize();
+
+
     // html reporter (protractor-html-screenshot-reporter)
     //   jasmine.getEnv().addReporter(new HtmlReporter({
     //   baseDirectory: '../tmp/htmltestreports',
@@ -81,6 +98,7 @@ exports.config = {
     //   takeScreenShotsForSkippedSpecs: true,
     //   takeScreenShotsOnlyForFailedSpecs: false
     // }));
+    
 
     // html reporter (protractor-jasmine2-html-reporter)
     jasmine.getEnv().addReporter(
@@ -134,5 +152,9 @@ exports.config = {
       // If you need to interact with a non-Angular page, you may access the wrapped webdriver instance
       // directly with browser.driver. This is a an alias.
       global.dv = browser.driver;
+  },
+   afterAll: function(){
+    'use strict';
+    connection.end();
   }
 };
