@@ -39,7 +39,6 @@ describe ('Database connection', function(){
     } else {
     	console.log('Found ' + rows.length + ' rows when quering for users');
     	  	  	console.log('Found ' + result.length + ' results when quering for users');
-    	  	  	console.log(fields.length);
     }
 
     });

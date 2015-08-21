@@ -5,10 +5,10 @@ var cookiesPage = require('../pageObjects/cookiesPage.js');
 var urls = require('../pageObjects/urls.js');
 var mysql = require('mysql');
     var connection = mysql.createConnection({
-    host : 'x',
-    user : 'x',
-    password : 'x',
-    database: 'x'
+    host : 'mysql.stgwaw.opigram',
+    user : 'monad',
+    password : 'monad',
+    database: 'monad'
     });
     connection.connect();
 

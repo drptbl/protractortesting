@@ -35,6 +35,20 @@
 			// Port to attach to.
 			"port": 5858,
 			"sourceMaps": false
+		},
+				{
+                "name": "Launch e2e Tests",
+                "type": "node",
+                "program": "node_modules/protractor/lib/cli.js",
+                "stopOnEntry": false,
+                "args": ["protractor.conf.js","--baseUrl='pippo'" ],
+                "cwd": ".",
+                "runtimeExecutable": null,
+                "isShellCommand": true,
+                "runtimeArgs": [],
+                "env": { },
+                "sourceMaps": false,
+                "outDir": null
 		}
 	]
 }
