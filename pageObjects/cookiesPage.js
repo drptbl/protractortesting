@@ -1,8 +1,8 @@
 'use strict';
 
-var Factory = require('../lib/pageObject.js').PageObjectFactory;
+var cookiesPage = require('../lib/pageObject.js').PageObjectFactory;
 
-module.exports = Factory.create({
+module.exports = cookiesPage.create({
 
     notneeded: function(){
         return browser.get('');

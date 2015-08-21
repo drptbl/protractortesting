@@ -1,8 +1,8 @@
 'use strict';
 
-var Factory = require('../lib/pageObject.js').PageObjectFactory;
+var urls = require('../lib/pageObject.js').PageObjectFactory;
 
-module.exports = Factory.create({
+module.exports = urls.create({
 
     loginPage: function(){
         return ('/account/login/');

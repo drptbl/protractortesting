@@ -28,19 +28,19 @@ describe ('Login Page', function(){
         expect(browser.getTitle()).toEqual(loginPage.pageTitle());
     });
 
-    describe('Login', function(){
-        it('should work properly', function() {
- connection.query(sql, function(err, rows) {
-    if (err) {
-        console.log('Could not run query');
-    } else {
-  console.log('The solution is: ', rows[0].solution);
-    }
-    connection.end();
-        });
-        //Inserts user and verifies row insertion
-            });
-            });
+//    describe('Login', function(){
+//        it('should work properly', function() {
+// connection.query(sql, function(err, rows) {
+//    if (err) {
+//        console.log('Could not run query');
+//    } else {
+//  console.log('The solution is: ', rows[0].solution);
+//    }
+//    connection.end();
+//        });
+//        //Inserts user and verifies row insertion
+//            });
+//            });
 
     describe('Cookie Window', function(){
 
@@ -62,7 +62,7 @@ describe ('Login Page', function(){
 
         it('should redirect user to cookie page after click on more.. text', function() {
             loginPage.cookieMore().click();
-            expect(browser.getCurrentUrl()).toEqual(urls.cookiesPage());
+            expect(browser.getCurrentUrl()).toBe(baseUrl + urls.cookiesPage());
         });
 
         it('should contain cookie accept button', function() {

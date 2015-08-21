@@ -1,8 +1,8 @@
 'use strict';
 
-var Factory = require('../lib/pageObject.js').PageObjectFactory;
+var homePage = require('../lib/pageObject.js').PageObjectFactory;
 
-module.exports = Factory.create({
+module.exports = homePage.create({
 
     logo: function(){
     	return element(by.css('.icon-yougov-logo'));

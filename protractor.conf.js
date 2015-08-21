@@ -28,7 +28,7 @@ exports.config = {
     homepage: 'spec/homePageSpec.js'
   },
   
-  baseUrl: 'https://uat-unified-emea.yougov.net',
+  baseUrl: 'https://yougov.co.uk',
 
   // The timeout in milliseconds for each script run on the browser. This should
   // be longer than the maximum time your application needs to stabilize between

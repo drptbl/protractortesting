@@ -1,8 +1,8 @@
 'use strict';
 
-var Factory = require('../lib/pageObject.js').PageObjectFactory;
+var loginPage = require('../lib/pageObject.js').PageObjectFactory;
 
-module.exports = Factory.create({
+module.exports = loginPage.create({
 
     logo: function(){
         return element(by.css('.logo'));

@@ -17,10 +17,10 @@ describe ('Home Page', function(){
         expect(browser.getTitle()).toEqual(homePage.pageTitle());
     });
 
-    describe('Map', function(){
-
-        it('should be shown', function() {
-            expect(homePage.map().isPresent()).toBeTruthy();
-        });
-    });
+//    describe('Map', function(){
+//
+//        it('should be shown', function() {
+//            expect(homePage.map().isPresent()).toBeTruthy();
+//        });
+//    });
 });
