@@ -1,10 +1,77 @@
 var jasmineReporters = require('jasmine-reporters');
 var SpecReporter = require('jasmine-spec-reporter');
 var HtmlScreenshotReporter = require('protractor-jasmine2-screenshot-reporter');
-var mysql = require('mysql');
-
+// var mysql = require('mysql');
 
 exports.config = {
+  
+     plugins: [
+     // protractor e2e coverage plugin [based on dom without instrumentation]
+     // doesnt work, issue posted on github
+     // {
+     // path: 'node_modules/protractor-e2e-coverage/index.js',
+     // outdir: 'test/coverage',
+     // elements: [ 
+     // add one for each DOM type 
+     // {
+     //  'type': 'button',
+     //  'events': ['click'], // array of events to listen to 
+     //  'elements': []
+     // }
+     // ]
+     // },
+     
+     // extensions adding these features (you work on classes):
+     // expect(theElement.hasClass('a')).toBeTruthy();
+     // expect(theElement.hasClasses(['a', 'c'])).toBeTruthy();
+     // expect(theElement.hasClass('x')).toBeFalsy();
+     // expect(theElement.hasClasses(['a', 'x'])).toBeFalsy();
+        {
+        path: 'node_modules/protractor-extensions/index.js'
+        }
+     // another coverage plugin, needs instrumentation, but works   
+     // {
+     // path: 'node_modules/protractor-istanbul-plugin'
+     // }
+        ],
+
+     // console plugin for all browsers - confirm working
+     // readme: logLevels: Inclusive Array filter for which log levels
+     // to show. Can be any of 'debug', 'info', 'warning' and
+     // 'severe'. Defaults to ['severe', 'warning'].
+     //  {
+     //  package: 'protractor-console',
+     //  logLevels: ['info']
+     //  }
+     //  ],
+       
+    //{
+    // having some issues, need to fix them.
+    // path: 'node_modules/protractor/plugins/timeline/index.js',
+    // Output json and html will go in this folder.
+    // outdir: 'timelines',
+    // Optional - if sauceUser and sauceKey are specified, logs from
+    // SauceLabs will also be parsed after test invocation.
+    // sauceUser: 'Jane',
+    // sauceKey: 'abcdefg'
+    // },
+    
+    // accessibility testing plugin - able to use tenon.io or Chrome Accessibility Developer Tools
+    // {
+    // chromeA11YDevTools: {
+    // treatWarningsAsFailures: false
+    // },
+    // path: 'node_modules/protractor/plugins/accessibility'
+    // }
+    
+    // [dont use] console plugin - chrome only - allows to save browser console output and fail tests on errors 
+    // {
+    // path: 'node_modules/protractor/plugins/console',
+    // failOnWarning: false,
+    // failOnError: false,
+    // exclude some strings or regex from fails
+    // exclude: []
+    // }],
 
   // The address of a running selenium server.
   seleniumAddress: 'http://localhost:4444/wd/hub',
@@ -79,13 +146,13 @@ exports.config = {
     'use strict';
 
     //connect to database
-    var connection = mysql.createConnection({
-    host : 'mysql.stgwaw.opigram',
-    user : 'monad',
-    password : 'monad',
-    database: 'monad'
-    });
-    connection.connect();
+    // var connection = mysql.createConnection({
+    // host : 'x',
+    // user : 'x',
+    // password : 'x',
+    // database: 'x'
+    // });
+    // connection.connect();
 
     // maximize window
     browser.driver.manage().window().maximize();

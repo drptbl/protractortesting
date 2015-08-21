@@ -1,0 +1,19 @@
+<html>
+
+<head>
+<title>Protractor API docs 2 Tern</title>
+<script type="text/javascript" src="../apiDocs/toc.json.js"></script>
+<script type="text/javascript" src="../apiDocs2Tern.js"></script>
+<script type="text/javascript">
+  function generateTernDef() {
+	var generator = new apiDocs2Tern.Generator();
+	var ternDef = generator.process(api);
+    document.getElementById('ternDef').value = JSON.stringify(ternDef, null,
+        ' ');
+  }
+</script>
+</head>
+<body onload="generateTernDef();">
+	<textarea id="ternDef" style="width: 100%; height: 100%"></textarea>
+</body>
+</html>

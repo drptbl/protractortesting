@@ -3,16 +3,25 @@
 var loginPage = require('../pageObjects/loginPage.js');
 var cookiesPage = require('../pageObjects/cookiesPage.js');
 var urls = require('../pageObjects/urls.js');
-var mysql = require('mysql');
-    var connection = mysql.createConnection({
-    host : 'x',
-    user : 'x',
-    password : 'x',
-    database: 'x'
-    });
-    connection.connect();
+// var mysql = require('mysql');
+//    var connection = mysql.createConnection({
+//    host : 'x',
+//    user : 'x',
+//    password : 'x',
+//    database: 'x'
+//    });
+//    connection.connect();
 
-var sql = 'SELECT user_panellist_id FROM users WHERE user_active=1 AND user_admin=0 AND user_id < 400000 AND user_delivery_telephone = "" AND user_pmxid IS NOT NULL ORDER BY user_id DESC limit 0,1';
+// var sql = 'SELECT user_panellist_id FROM users WHERE user_active=1 AND user_admin=0 AND user_id < 400000 AND user_delivery_telephone = "" AND user_pmxid IS NOT NULL ORDER BY user_id DESC limit 0,1';
+
+// check for browser logs, if any error exist fail the test
+//  afterEach(function() {
+//    browser.manage().logs().get('browser').then(function(browserLog) {
+//      expect(browserLog.length).toEqual(0);
+      // Uncomment to actually see the log.
+//       console.log('log: ' + require('util').inspect(browserLog));
+//    });
+//  });
 
 describe ('Login Page', function(){
 
@@ -62,7 +71,7 @@ describe ('Login Page', function(){
 
         it('should redirect user to cookie page after click on more.. text', function() {
             loginPage.cookieMore().click();
-            expect(browser.getCurrentUrl()).toBe(baseUrl + urls.cookiesPage());
+            expect(browser.getCurrentUrl()).toEqual(browser.baseUrl + urls.cookiesPage());
         });
 
         it('should contain cookie accept button', function() {
