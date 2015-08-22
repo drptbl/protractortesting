@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+ <testsuite name="Admin Page" timestamp="2015-08-22T20:23:38" hostname="localhost" time="14.959" errors="0" tests="2" skipped="0" disabled="0" failures="1">
+  <testcase classname="Admin Page" name="should render properly" time="11.501">
+   <failure type="toBeFalsy" message="Expected true to be falsy."><![CDATA[Error: Failed expectation
+    at Object.<anonymous> (/Users/jm/repos/protractortesting/specs/adminPageSpec.js:14:46)
+    at /usr/local/lib/node_modules/protractor/node_modules/jasminewd2/index.js:96:23
+    at new promise.Promise (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:355:5)
+    at controlFlowExecute (/usr/local/lib/node_modules/protractor/node_modules/jasminewd2/index.js:82:18)
+    at [object Object].promise.ControlFlow.runInFrame_ (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1877:20)
+    at [object Object].promise.ControlFlow.runEventLoop_ (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1755:8)
+    at [object Object].<anonymous> (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:2056:12)
+    at goog.async.run.processWorkQueue (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/goog/async/run.js:125:21)
+    at runMicrotasksCallback (node.js:337:7)]]>
+   </failure>
+  </testcase>
+  <testcase classname="Admin Page" name="should contain proper title" time="1.726" />
+ </testsuite>
+ <testsuite name="Admin Page.Cookie Window" timestamp="2015-08-22T20:23:52" hostname="localhost" time="1.727" errors="0" tests="1" skipped="0" disabled="0" failures="4">
+  <testcase classname="Admin Page.Cookie Window" name="should contain cookie frame with elements" time="1.724">
+   <failure type="toBeTruthy" message="Expected false to be truthy."><![CDATA[Error: Failed expectation
+    at Object.<anonymous> (/Users/jm/repos/protractortesting/specs/adminPageSpec.js:24:57)
+    at /usr/local/lib/node_modules/protractor/node_modules/jasminewd2/index.js:96:23
+    at new promise.Promise (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:355:5)
+    at controlFlowExecute (/usr/local/lib/node_modules/protractor/node_modules/jasminewd2/index.js:82:18)
+    at [object Object].promise.ControlFlow.runInFrame_ (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1877:20)
+    at [object Object].promise.ControlFlow.runEventLoop_ (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1755:8)
+    at [object Object].<anonymous> (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:2056:12)
+    at goog.async.run.processWorkQueue (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/goog/async/run.js:125:21)
+    at runMicrotasksCallback (node.js:337:7)]]>
+   </failure>
+   <failure type="toBeTruthy" message="Expected false to be truthy."><![CDATA[Error: Failed expectation
+    at Object.<anonymous> (/Users/jm/repos/protractortesting/specs/adminPageSpec.js:25:56)
+    at /usr/local/lib/node_modules/protractor/node_modules/jasminewd2/index.js:96:23
+    at new promise.Promise (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:355:5)
+    at controlFlowExecute (/usr/local/lib/node_modules/protractor/node_modules/jasminewd2/index.js:82:18)
+    at [object Object].promise.ControlFlow.runInFrame_ (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1877:20)
+    at [object Object].promise.ControlFlow.runEventLoop_ (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1755:8)
+    at [object Object].<anonymous> (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:2056:12)
+    at goog.async.run.processWorkQueue (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/goog/async/run.js:125:21)
+    at runMicrotasksCallback (node.js:337:7)]]>
+   </failure>
+   <failure type="toBeTruthy" message="Expected false to be truthy."><![CDATA[Error: Failed expectation
+    at Object.<anonymous> (/Users/jm/repos/protractortesting/specs/adminPageSpec.js:26:56)
+    at /usr/local/lib/node_modules/protractor/node_modules/jasminewd2/index.js:96:23
+    at new promise.Promise (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:355:5)
+    at controlFlowExecute (/usr/local/lib/node_modules/protractor/node_modules/jasminewd2/index.js:82:18)
+    at [object Object].promise.ControlFlow.runInFrame_ (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1877:20)
+    at [object Object].promise.ControlFlow.runEventLoop_ (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1755:8)
+    at [object Object].<anonymous> (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:2056:12)
+    at goog.async.run.processWorkQueue (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/goog/async/run.js:125:21)
+    at runMicrotasksCallback (node.js:337:7)]]>
+   </failure>
+   <failure type="toBeTruthy" message="Expected false to be truthy."><![CDATA[Error: Failed expectation
+    at Object.<anonymous> (/Users/jm/repos/protractortesting/specs/adminPageSpec.js:27:64)
+    at /usr/local/lib/node_modules/protractor/node_modules/jasminewd2/index.js:96:23
+    at new promise.Promise (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:355:5)
+    at controlFlowExecute (/usr/local/lib/node_modules/protractor/node_modules/jasminewd2/index.js:82:18)
+    at [object Object].promise.ControlFlow.runInFrame_ (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1877:20)
+    at [object Object].promise.ControlFlow.runEventLoop_ (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1755:8)
+    at [object Object].<anonymous> (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:2056:12)
+    at goog.async.run.processWorkQueue (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/goog/async/run.js:125:21)
+    at runMicrotasksCallback (node.js:337:7)]]>
+   </failure>
+  </testcase>
+ </testsuite>
+</testsuites>

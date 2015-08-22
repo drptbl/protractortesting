@@ -3,6 +3,9 @@
 var homePage = require('../pageObjects/homePage.js');
 var urls = require('../pageObjects/urls.js');
 
+// visual review
+// var vr = browser.params.visualreview;
+
 describe ('Home Page', function(){
 
     beforeEach(function() {
@@ -11,16 +14,19 @@ describe ('Home Page', function(){
 
     it('should render properly', function() {
         expect(homePage.logo().isPresent()).toBeTruthy();
+        // vr.takeScreenshot('YouGov-homepage');
     });
 
     it('should contain proper title', function() {
         expect(browser.getTitle()).toEqual(homePage.pageTitle());
     });
 
-//    describe('Map', function(){
-//
-//        it('should be shown', function() {
-//            expect(homePage.map().isPresent()).toBeTruthy();
-//        });
-//    });
+/*
+    describe('Map', function(){
+
+        it('should be shown', function() {
+            expect(homePage.map().isPresent()).toBeTruthy();
+        });
+    });
+*/
 });
