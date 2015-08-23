@@ -79,14 +79,13 @@ describe ('Login Page', function(){
         });
 
         it('should redirect user to cookie page after click on more.. text', function() {
-            loginPage.cookieMore().click().then(function() {
+            loginPage.cookieMore().click();
             expect(browser.getCurrentUrl()).toEqual(browser.baseUrl + urls.cookiesPage());
             expect(loginPage.cookieFrame().isPresent()).toBeTruthy();
             expect(loginPage.cookieText().isPresent()).toBeTruthy();
             expect(loginPage.cookieMore().isPresent()).toBeTruthy();
             expect(loginPage.cookieAcceptButton().isPresent()).toBeTruthy();
-            });
-            browser.driver.sleep(100);
+            browser.sleep(100);
             vr.takeScreenshot('YouGov-cookiepage');
             // smth like that could be used - toMatch takes path not full url
             // expect(browser.getLocationAbsUrl()).toMatch(urls.cookiesPage());
@@ -98,7 +97,7 @@ describe ('Login Page', function(){
 
         it('should close cookie frame after acceptation', function() {
             loginPage.cookieAcceptButton().click().then(function() {
-            browser.driver.sleep(100);
+            browser.sleep(100);
             expect(loginPage.cookieFrame().isPresent()).toBeFalsy();
             });
         });

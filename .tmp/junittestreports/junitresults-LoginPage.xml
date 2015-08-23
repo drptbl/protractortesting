@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
- <testsuite name="Login Page" timestamp="2015-08-23T13:46:44" hostname="localhost" time="32.239" errors="0" tests="2" skipped="0" disabled="0" failures="0">
-  <testcase classname="Login Page" name="should render properly" time="10.596" />
-  <testcase classname="Login Page" name="should contain proper title" time="2.592" />
+ <testsuite name="Login Page" timestamp="2015-08-23T19:22:24" hostname="localhost" time="30.543" errors="0" tests="2" skipped="0" disabled="0" failures="0">
+  <testcase classname="Login Page" name="should render properly" time="10.059" />
+  <testcase classname="Login Page" name="should contain proper title" time="2.448" />
  </testsuite>
- <testsuite name="Login Page.Cookie Window" timestamp="2015-08-23T13:46:58" hostname="localhost" time="19.051" errors="0" tests="6" skipped="0" disabled="0" failures="0">
-  <testcase classname="Login Page.Cookie Window" name="should contain cookie frame with elements" time="2.594" />
-  <testcase classname="Login Page.Cookie Window" name="should contain cookie description" time="2.647" />
-  <testcase classname="Login Page.Cookie Window" name="should contain cookie more.. text" time="2.487" />
-  <testcase classname="Login Page.Cookie Window" name="should redirect user to cookie page after click on more.. text" time="6.394" />
-  <testcase classname="Login Page.Cookie Window" name="should contain cookie accept button" time="2.378" />
-  <testcase classname="Login Page.Cookie Window" name="should close cookie frame after acceptation" time="2.549" />
+ <testsuite name="Login Page.Cookie Window" timestamp="2015-08-23T19:22:36" hostname="localhost" time="18.034" errors="0" tests="6" skipped="0" disabled="0" failures="0">
+  <testcase classname="Login Page.Cookie Window" name="should contain cookie frame with elements" time="2.603" />
+  <testcase classname="Login Page.Cookie Window" name="should contain cookie description" time="2.297" />
+  <testcase classname="Login Page.Cookie Window" name="should contain cookie more.. text" time="2.397" />
+  <testcase classname="Login Page.Cookie Window" name="should redirect user to cookie page after click on more.. text" time="5.705" />
+  <testcase classname="Login Page.Cookie Window" name="should contain cookie accept button" time="2.373" />
+  <testcase classname="Login Page.Cookie Window" name="should close cookie frame after acceptation" time="2.657" />
  </testsuite>
 </testsuites>
