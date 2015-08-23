@@ -5,15 +5,15 @@ var cookiesPage = require('../pageObjects/cookiesPage.js');
 var urls = require('../pageObjects/urls.js');
 
 // visual review
-// var vr = browser.params.visualreview;
+ var vr = browser.params.visualreview;
 
 /*
 var mysql = require('mysql');
     var connection = mysql.createConnection({
-    host : 'x',
-    user : 'x',
-    password : 'x',
-    database: 'x'
+    host : 'mysql.stgwaw.opigram',
+    user : 'monad',
+    password : 'monad',
+    database: 'monad'
     });
     connection.connect();
 
@@ -37,7 +37,7 @@ describe ('Login Page', function(){
 
     it('should render properly', function() {
         expect(loginPage.logo().isPresent()).toBeTruthy();
-        // vr.takeScreenshot('YouGov-loginpage');
+        vr.takeScreenshot('YouGov-loginpage');
     });
 
     it('should contain proper title', function() {
@@ -79,9 +79,15 @@ describe ('Login Page', function(){
         });
 
         it('should redirect user to cookie page after click on more.. text', function() {
-            loginPage.cookieMore().click();
+            loginPage.cookieMore().click().then(function() {
             expect(browser.getCurrentUrl()).toEqual(browser.baseUrl + urls.cookiesPage());
-            // vr.takeScreenshot('YouGov-cookiepage');
+            expect(loginPage.cookieFrame().isPresent()).toBeTruthy();
+            expect(loginPage.cookieText().isPresent()).toBeTruthy();
+            expect(loginPage.cookieMore().isPresent()).toBeTruthy();
+            expect(loginPage.cookieAcceptButton().isPresent()).toBeTruthy();
+            });
+            browser.driver.sleep(100);
+            vr.takeScreenshot('YouGov-cookiepage');
             // smth like that could be used - toMatch takes path not full url
             // expect(browser.getLocationAbsUrl()).toMatch(urls.cookiesPage());
         });
@@ -91,9 +97,10 @@ describe ('Login Page', function(){
         });
 
         it('should close cookie frame after acceptation', function() {
-            loginPage.cookieAcceptButton().click();
-            browser.sleep(100);
+            loginPage.cookieAcceptButton().click().then(function() {
+            browser.driver.sleep(100);
             expect(loginPage.cookieFrame().isPresent()).toBeFalsy();
+            });
         });
     });
 });

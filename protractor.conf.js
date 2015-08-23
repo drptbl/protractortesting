@@ -1,14 +1,17 @@
-var jasmineReporters = require('jasmine-reporters');
-var SpecReporter = require('jasmine-spec-reporter');
-var HtmlScreenshotReporter = require('protractor-jasmine2-screenshot-reporter');
+ var jasmineReporters = require('jasmine-reporters');
+ var SpecReporter = require('jasmine-spec-reporter');
+
+// not working with visualreview
+// var HtmlScreenshotReporter = require('protractor-jasmine2-screenshot-reporter');
+
 // var mysql = require('mysql');
 
 // visualreview module
-// const VisualReview = require('visualreview-protractor');
-// var vr = new VisualReview({
-//  hostname: 'localhost',
-//  port: 7000
-// });
+ const VisualReview = require('visualreview-protractor');
+ var vr = new VisualReview({
+  hostname: 'localhost',
+  port: 7000
+ });
 
 // needed for screenshot on fail and saving browser console logs - not really needed
 // can be replaced by better npm modules
@@ -52,17 +55,17 @@ var timestampToDate = function (unix_timestamp) {
 exports.config = {
      
       // visualreview
-      // beforeLaunch: function () {
+       beforeLaunch: function () {
       // Creates a new run under project name 'myProject', suite 'mySuite'. 
       // Make sure that there's a project with this name before running the test.
-      // return vr.initRun('YouGov', 'General');
-      // },
+       return vr.initRun('YouGov', 'Sixth');
+       },
      
       // visualreview
-      // afterLaunch: function (exitCode) {
+       afterLaunch: function (exitCode) {
       // finalizes the run, cleans up temporary files 
-      // return vr.cleanup(exitCode);
-      // },
+       return vr.cleanup(exitCode);
+       },
     
      // saucelabs and travis ci config smoke example
      // https://github.com/angular/protractor/blob/master/spec/ciSmokeConf.js
@@ -247,7 +250,7 @@ exports.config = {
   //   --params.login.user 'Joe'
   params: {
     // visualreview
-    // visualreview: vr
+     visualreview: vr
   },
 
   // ---------------------------------------------------------------------------
@@ -289,10 +292,10 @@ exports.config = {
     /*
     //connect to database
      var connection = mysql.createConnection({
-     host : 'x',
-     user : 'x',
-     password : 'x',
-     database: 'x'
+     host : 'mysql.stgwaw.opigram',
+     user : 'monad',
+     password : 'monad',
+     database: 'monad'
      });
      connection.connect();
     */
@@ -301,7 +304,7 @@ exports.config = {
     browser.driver.manage().window().maximize();
 
     /*
-    // html reporter (protractor-html-screenshot-reporter)
+    // html reporter - use with jasmine1 (protractor-html-screenshot-reporter)
        jasmine.getEnv().addReporter(new HtmlReporter({
        baseDirectory: '../tmp/htmltestreports',
        preserveDirectory: false,
@@ -312,7 +315,12 @@ exports.config = {
        }));
     */
 
+/*
     // html reporter (protractor-jasmine2-html-reporter)
+    // NOTE: not able to use it with visualreview
+    // actually it throws errors after all tests are finished
+    // even that errors pops up it works fine but not sure
+    // if its fully functional - need to confirm later on
     jasmine.getEnv().addReporter(
     new HtmlScreenshotReporter({
     dest: '.tmp/htmltestreports',
@@ -321,6 +329,7 @@ exports.config = {
     captureOnlyFailedSpecs: false,
     reportOnlyFailedSpecs: false
     }));
+    */
     
     // Disable animations so e2e tests run more quickly
     var disableNgAnimate = function() {
@@ -328,14 +337,32 @@ exports.config = {
         $animate.enabled(false);
       }]);
     };
-
+    
     browser.addMockModule('disableNgAnimate', disableNgAnimate);
 
     // Store the name of the browser that's currently being used.
     browser.getCapabilities().then(function(caps) {
-    browser.params.browser = caps.get('browserName');
-     });
-
+      browser.params.browser = caps.get('browserName');
+    });
+    
+    // Disable css animations
+    var disableCssAnimate = function() {
+      angular
+      .module('disableCssAnimate', [])
+      .run (function () {
+        var style = document.createElement('style');
+        style.type = 'text/css';
+        style.innerHTML = '* {' +
+        '-webkit-transition: none !important;' +
+        '-moz-transition: none !important;' +
+        '-o-transition: none !important;' +
+        '-ms-transition: none !important;' +
+        '-transition: none !important;' +
+        '}';
+        document.getElementsByTagName('head')[0].appendChild(style);
+      });
+    };   
+    
     jasmine.getEnv().addReporter(new jasmineReporters.JUnitXmlReporter({
         consolidateAll: false,
         savePath: '.tmp/junittestreports'
@@ -361,6 +388,7 @@ exports.config = {
             pending: '* '
             },
       }));
+      
       // If you need to interact with a non-Angular page, you may access the wrapped webdriver instance
       // directly with browser.driver. This is a an alias.
       global.dv = browser.driver;
@@ -425,6 +453,6 @@ exports.config = {
   },
    afterAll: function(){
     'use strict';
-    connection.end();
+    // connection.end();
   }
 };

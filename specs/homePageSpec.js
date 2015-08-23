@@ -4,7 +4,7 @@ var homePage = require('../pageObjects/homePage.js');
 var urls = require('../pageObjects/urls.js');
 
 // visual review
-// var vr = browser.params.visualreview;
+var vr = browser.params.visualreview;
 
 describe ('Home Page', function(){
 
@@ -14,7 +14,8 @@ describe ('Home Page', function(){
 
     it('should render properly', function() {
         expect(homePage.logo().isPresent()).toBeTruthy();
-        // vr.takeScreenshot('YouGov-homepage');
+        browser.driver.sleep(100);
+        vr.takeScreenshot('YouGov-homepage');
     });
 
     it('should contain proper title', function() {
