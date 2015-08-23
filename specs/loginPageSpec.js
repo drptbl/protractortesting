@@ -10,10 +10,10 @@ var urls = require('../pageObjects/urls.js');
 /*
 var mysql = require('mysql');
     var connection = mysql.createConnection({
-    host : 'mysql.stgwaw.opigram',
-    user : 'monad',
-    password : 'monad',
-    database: 'monad'
+    host : 'x',
+    user : 'x',
+    password : 'x',
+    database: 'x'
     });
     connection.connect();
 

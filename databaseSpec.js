@@ -6,10 +6,10 @@ var mysql = require('mysql');
 var sql = 'SELECT user_panellist_id AS result FROM users WHERE user_active=1 AND user_admin=0 AND user_id < 400000 AND user_delivery_telephone = "" AND user_pmxid IS NOT NULL ORDER BY user_id DESC limit 0,1';
 
     var connection = mysql.createConnection({
-    host : 'mysql.stgwaw.opigram',
-    user : 'monad',
-    password : 'monad',
-    database: 'monad'
+    host : 'x',
+    user : 'x',
+    password : 'x',
+    database: 'x'
     });
 
 var common = require('common');
