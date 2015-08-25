@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
- <testsuite name="Login Page" timestamp="2015-08-24T13:36:06" hostname="localhost" time="22.768" errors="0" tests="2" skipped="0" disabled="0" failures="0">
-  <testcase classname="Login Page" name="should render properly" time="3.655" />
-  <testcase classname="Login Page" name="should contain proper title" time="2.286" />
- </testsuite>
- <testsuite name="Login Page.Cookie Window" timestamp="2015-08-24T13:36:12" hostname="localhost" time="16.827" errors="0" tests="6" skipped="0" disabled="0" failures="0">
-  <testcase classname="Login Page.Cookie Window" name="should contain cookie frame with elements" time="2.396" />
-  <testcase classname="Login Page.Cookie Window" name="should contain cookie description" time="2.113" />
-  <testcase classname="Login Page.Cookie Window" name="should contain cookie more.. text" time="2.359" />
-  <testcase classname="Login Page.Cookie Window" name="should redirect user to cookie page after click on more.. text" time="5.539" />
-  <testcase classname="Login Page.Cookie Window" name="should contain cookie accept button" time="2.145" />
-  <testcase classname="Login Page.Cookie Window" name="should close cookie frame after acceptation" time="2.272" />
+ <testsuite name="Login Page" timestamp="2015-08-25T13:24:42" hostname="localhost" time="5.39" errors="0" tests="2" skipped="0" disabled="0" failures="0">
+  <testcase classname="Login Page" name="should render properly" time="3.071" />
+  <testcase classname="Login Page" name="should contain proper title" time="2.317" />
  </testsuite>
 </testsuites>

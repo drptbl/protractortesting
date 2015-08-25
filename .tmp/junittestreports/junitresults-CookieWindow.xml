@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+ <testsuite name="Cookie Window" timestamp="2015-08-25T13:24:16" hostname="localhost" time="21.22" errors="0" tests="7" skipped="0" disabled="0" failures="0">
+  <testcase classname="Cookie Window" name="should render properly" time="4.945" />
+  <testcase classname="Cookie Window" name="should contain cookie description" time="2.005" />
+  <testcase classname="Cookie Window" name="should contain cookie more.. text" time="2.085" />
+  <testcase classname="Cookie Window" name="should redirect user to cookie page after click on more.. text" time="5.911" />
+  <testcase classname="Cookie Window" name="should contain cookie accept button" time="2.202" />
+  <testcase classname="Cookie Window" name="should close cookie frame after click on Accept cookies" time="2.217" />
+  <testcase classname="Cookie Window" name="should set proper cookie after acceptation" time="1.85" />
+ </testsuite>
+</testsuites>

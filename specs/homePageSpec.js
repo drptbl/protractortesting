@@ -1,19 +1,18 @@
 'use strict';
 
-var width = 1024;
-var height = 768;
-browser.driver.manage().window().setSize(width, height);
-
-var homePage = require('../pageObjects/homePage.js');
-var urls = require('../pageObjects/urls.js');
-
-// visual review
-var vr = browser.params.visualreview;
-
 describe ('Home Page', function(){
 
+    var width = 1024;
+    var height = 768;
+    browser.driver.manage().window().setSize(width, height);
+    
+    var homePage = require('../pageObjects/homePage.js');
+    
+    // visual review
+    var vr = browser.params.visualreview;
+
     beforeEach(function() {
-        return browser.get(urls.homePage());
+        return browser.get(homePage.url());
     });
 
     it('should render properly', function() {
@@ -33,4 +32,5 @@ describe ('Home Page', function(){
         });
     });
 */
+
 });

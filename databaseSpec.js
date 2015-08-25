@@ -1,22 +1,21 @@
 'use strict';
 
-var loginPage = require('../pageObjects/loginPage.js');
-var urls = require('../pageObjects/urls.js');
-var mysql = require('mysql');
-var sql = 'SELECT user_panellist_id AS result FROM users WHERE user_active=1 AND user_admin=0 AND user_id < 400000 AND user_delivery_telephone = "" AND user_pmxid IS NOT NULL ORDER BY user_id DESC limit 0,1';
-
-    var connection = mysql.createConnection({
-    host : 'x',
-    user : 'x',
-    password : 'x',
-    database: 'x'
-    });
-
-var common = require('common');
-var path = common.fixtures + '/data/data.csv';
-var table = 'user_panellist_id';
-
 describe ('Database connection', function(){
+    
+    var loginPage = require('../pageObjects/loginPage.js');
+    var mysql = require('mysql');
+    var sql = 'SELECT user_panellist_id AS result FROM users WHERE user_active=1 AND user_admin=0 AND user_id < 400000 AND user_delivery_telephone = "" AND user_pmxid IS NOT NULL ORDER BY user_id DESC limit 0,1';
+    
+        var connection = mysql.createConnection({
+        host : 'x',
+        user : 'x',
+        password : 'x',
+        database: 'x'
+        });
+    
+    var common = require('common');
+    var path = common.fixtures + '/data/data.csv';
+    var table = 'user_panellist_id';
 
     beforeEach(function() {
     });

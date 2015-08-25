@@ -4,6 +4,10 @@ var homePage = require('../lib/pageObject.js').PageObjectFactory;
 
 module.exports = homePage.create({
 
+    url: function(){
+        return ('/');
+    },
+
     logo: function(){
     	return element(by.css('.icon-yougov-logo'));
     },

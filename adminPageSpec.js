@@ -1,9 +1,8 @@
 'use strict';
 
-var loginPage = require('../pageObjects/loginPage.js');
-var urls = require('../pageObjects/urls.js');
-
 describe ('Admin Page', function(){
+
+var loginPage = require('../pageObjects/loginPage.js');
 
     beforeEach(function() {
 		browser.ignoreSynchronization = true;

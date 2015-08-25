@@ -55,7 +55,6 @@ var timestampToDate = function (unix_timestamp) {
 
 exports.config = {
      
-
       // visualreview
        beforeLaunch: function () {
       // Creates a new run under project name 'myProject', suite 'mySuite'. 
