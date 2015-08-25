@@ -1,11 +1,16 @@
 'use strict';
 
+var width = 1024;
+var height = 768;
+browser.driver.manage().window().setSize(width, height);
+
 var loginPage = require('../pageObjects/loginPage.js');
 var cookiesPage = require('../pageObjects/cookiesPage.js');
 var urls = require('../pageObjects/urls.js');
 
 // visual review
- var vr = browser.params.visualreview;
+var vr = browser.params.visualreview;
+
 
 /*
 var mysql = require('mysql');
@@ -32,7 +37,9 @@ var mysql = require('mysql');
 describe ('Login Page', function(){
 
     beforeEach(function() {
-        browser.get(urls.loginPage());
+        return browser.get(urls.loginPage());
+        // workaround issue with sync - doesnt slow down tests - confirm working
+        // protractor.sleep(3000);
     });
 
     it('should render properly', function() {
@@ -80,6 +87,8 @@ describe ('Login Page', function(){
 
         it('should redirect user to cookie page after click on more.. text', function() {
             loginPage.cookieMore().click();
+            // workaround for couldnt sync with angular page - when changing between angular apps
+            browser.sleep(1000);
             expect(browser.getCurrentUrl()).toEqual(browser.baseUrl + urls.cookiesPage());
             expect(loginPage.cookieFrame().isPresent()).toBeTruthy();
             expect(loginPage.cookieText().isPresent()).toBeTruthy();

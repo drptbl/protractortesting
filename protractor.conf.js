@@ -6,6 +6,7 @@
 
 // var mysql = require('mysql');
 
+
 // visualreview module
  const VisualReview = require('visualreview-protractor');
  var vr = new VisualReview({
@@ -54,11 +55,12 @@ var timestampToDate = function (unix_timestamp) {
 
 exports.config = {
      
+
       // visualreview
        beforeLaunch: function () {
       // Creates a new run under project name 'myProject', suite 'mySuite'. 
       // Make sure that there's a project with this name before running the test.
-       return vr.initRun('YouGov', 'Sixth');
+       return vr.initRun('YouGov', 'To jest uruchomienie siodme');
        },
      
       // visualreview
@@ -230,14 +232,16 @@ exports.config = {
   },
   
   baseUrl: 'https://yougov.co.uk',
+  
+  // rootElement: 'body',
 
   // The timeout in milliseconds for each script run on the browser. This should
   // be longer than the maximum time your application needs to stabilize between
   // tasks.
-  allScriptsTimeout: 11000,
+  allScriptsTimeout: 90000,
 
   // How long to wait for a page to load.
-  getPageTimeout: 10000,
+  getPageTimeout: 90000,
 
   // If true, protractor will restart the browser between each test.
   // CAUTION: This will cause your tests to slow down drastically.
@@ -250,7 +254,7 @@ exports.config = {
   //   --params.login.user 'Joe'
   params: {
     // visualreview
-     visualreview: vr
+    visualreview: vr,
   },
 
   // ---------------------------------------------------------------------------
@@ -281,7 +285,7 @@ exports.config = {
     // If true, include stack traces in failures.
     includeStackTrace: true,
     // Default time to wait in ms before a test fails.
-    defaultTimeoutInterval: 30000,
+    defaultTimeoutInterval: 90000,
     // Remove protractor dot reporter
     print: function() {}
   },
@@ -300,9 +304,6 @@ exports.config = {
      connection.connect();
     */
 
-    // maximize window
-    browser.driver.manage().window().maximize();
-
     /*
     // html reporter - use with jasmine1 (protractor-html-screenshot-reporter)
        jasmine.getEnv().addReporter(new HtmlReporter({
@@ -314,8 +315,8 @@ exports.config = {
        takeScreenShotsOnlyForFailedSpecs: false
        }));
     */
-
 /*
+
     // html reporter (protractor-jasmine2-html-reporter)
     // NOTE: not able to use it with visualreview
     // actually it throws errors after all tests are finished
@@ -329,7 +330,7 @@ exports.config = {
     captureOnlyFailedSpecs: false,
     reportOnlyFailedSpecs: false
     }));
-    */
+*/
     
     // Disable animations so e2e tests run more quickly
     var disableNgAnimate = function() {

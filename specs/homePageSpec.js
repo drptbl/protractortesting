@@ -1,5 +1,9 @@
 'use strict';
 
+var width = 1024;
+var height = 768;
+browser.driver.manage().window().setSize(width, height);
+
 var homePage = require('../pageObjects/homePage.js');
 var urls = require('../pageObjects/urls.js');
 
@@ -9,12 +13,11 @@ var vr = browser.params.visualreview;
 describe ('Home Page', function(){
 
     beforeEach(function() {
-        browser.get(urls.homePage());
+        return browser.get(urls.homePage());
     });
 
     it('should render properly', function() {
         expect(homePage.logo().isPresent()).toBeTruthy();
-        browser.driver.sleep(100);
         vr.takeScreenshot('YouGov-homepage');
     });
 
